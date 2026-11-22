@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Jesús Ortiz | Senior Backend Engineer &amp; Tech Lead</title>
+  <style>
+    :root {
+      --ink: #0f172a;
+      --muted: #475569;
+      --light: #64748b;
+      --accent: #1d4ed8;
+      --border: #cbd5e1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: #e2e8f0;
+      line-height: 1.32;
+      font-size: 8.9pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .toolbar {
+      max-width: 215.9mm;
+      margin: 16px auto 0;
+      padding: 10px 16px;
+      background: #0f172a;
+      color: #f8fafc;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 6px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      background: #334155;
+      color: #f8fafc;
+    }
+
+    .page {
+      width: 215.9mm;
+      min-height: 279.4mm;
+      margin: 14px auto 32px;
+      padding: 9mm 13mm;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1.8px solid var(--ink);
+      padding-bottom: 6px;
+      margin-bottom: 7px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    h1 {
+      font-size: 19pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .role-title {
+      font-size: 10.2pt;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .contact-bar {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      font-size: 8.3pt;
+      color: var(--muted);
+    }
+
+    .contact-bar a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 9.2pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      margin-bottom: 4px;
+    }
+
+    .summary {
+      font-size: 8.8pt;
+      color: #1e293b;
+      text-align: justify;
+    }
+
+    /* Entries */
+    .entry {
+      margin-bottom: 5px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .entry-title {
+      font-weight: 700;
+      font-size: 9.2pt;
+      color: var(--ink);
+    }
+
+    .entry-company {
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .entry-meta {
+      font-size: 8.2pt;
+      color: var(--light);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+
+    ul {
+      padding-left: 15px;
+      margin-top: 1.5px;
+    }
+
+    li {
+      font-size: 8.65pt;
+      margin-bottom: 1.5px;
+      color: #1e293b;
+    }
+
+    li strong {
+      color: var(--ink);
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 4.5px;
+    }
+
+    .project-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .project-name {
+      font-weight: 700;
+      font-size: 9pt;
+      color: var(--ink);
+    }
+
+    .project-stack {
+      font-size: 8pt;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      font-size: 8.55pt;
+      color: #1e293b;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5px;
+      font-size: 8.55pt;
+    }
+
+    .skill-row strong {
+      color: var(--ink);
+      display: inline-block;
+      min-width: 138px;
+    }
+
+    /* Education */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.8pt;
+    }
+
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .toolbar {
+        display: none !important;
+      }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 9mm 13mm;
+        box-shadow: none;
+      }
+      a {
+        color: var(--ink) !important;
+        text-decoration: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>English Resume — ATS &amp; Print Preview (Letter / 1 Page)</span>
+    <div class="toolbar-actions">
+      <a class="btn btn-secondary" href="cv.html">Versión en Español</a>
+      <a class="btn btn-secondary" href="index.html">Portfolio</a>
+      <button class="btn btn-primary" onclick="window.print()">Save / Print PDF</button>
+    </div>
+  </div>
+
+  <main class="page">
+    <header>
+      <div class="header-top">
+        <h1>Jesús Ortiz</h1>
+        <span class="role-title">Senior Backend Engineer &amp; Tech Lead</span>
+      </div>
+      <div class="contact-bar">
+        <span>Ciudad Guayana, Bolívar, Venezuela</span>
+        <span>+58 424-935-4407</span>
+        <a href="mailto:ortizjesusrivas@gmail.com">ortizjesusrivas@gmail.com</a>
+        <a href="https://www.linkedin.com/in/casikenegro/" target="_blank" rel="noopener">linkedin.com/in/casikenegro</a>
+        <a href="https://github.com/casikenegro" target="_blank" rel="noopener">github.com/casikenegro</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">
+        Senior Backend Engineer &amp; Tech Lead with 9 years of experience (since 2017) designing and building scalable microservices, <strong>RESTful APIs</strong>, <strong>event-driven architectures</strong>, and real-time platforms. Specialized in <strong>Go</strong>, <strong>TypeScript / Node.js (NestJS, Hono)</strong>, and <strong>PHP (Laravel)</strong>, with deep expertise in SQL/NoSQL databases (PostgreSQL, MySQL, MongoDB, DynamoDB, Redis) and cloud-native infrastructure on <strong>Google Cloud Platform (GCP)</strong> and <strong>Amazon Web Services (AWS)</strong>. Proven track record leading engineering teams and shipping end-to-end products to production.
+      </p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Software Engineer &amp; Tech Lead</span>
+            <span class="entry-company">· Agrak</span>
+          </div>
+          <span class="entry-meta">Nov 2023 – Present · Remote</span>
+        </div>
+        <ul>
+          <li>Technical leadership and architecture of high-performance microservices in <strong>Go</strong> and <strong>GORM</strong> backed by <strong>PostgreSQL</strong>.</li>
+          <li>Design and deployment of serverless, event-driven cloud infrastructure on <strong>GCP</strong> (Cloud Run, Pub/Sub, BigQuery, Cloud Storage, Firebase).</li>
+          <li>Built <strong>Backend-for-Frontend (BFF)</strong> services using <strong>NestJS</strong> and collaborated on <strong>React micro-frontend</strong> interfaces.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Senior Backend Engineer</span>
+            <span class="entry-company">· Interfell (Client: Zeleri)</span>
+          </div>
+          <span class="entry-meta">Jun 2023 – Sep 2023 · Chile · Remote</span>
+        </div>
+        <ul>
+          <li>Engineered <strong>Go</strong> (<strong>Gin</strong>, <strong>GORM</strong>) microservices following the <strong>Repository pattern</strong>, data modeling, and <strong>Amazon RDS</strong> management.</li>
+          <li>Integrated <strong>GCP</strong> services (Cloud Run, BigQuery, Pub/Sub, Cloud Storage, Firebase) and implemented <strong>encryption algorithms</strong> for data security.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Backend Engineer</span>
+            <span class="entry-company">· Longevo</span>
+          </div>
+          <span class="entry-meta">Aug 2022 – Apr 2023 · Remote</span>
+        </div>
+        <ul>
+          <li>Built, optimized, and refactored serverless APIs on <strong>AWS Lambda</strong> using the <strong>Serverless Framework</strong>.</li>
+          <li>Designed relational database schemas and implemented an automated <strong>notification engine</strong> for fasting and workout tracking.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Backend Developer</span>
+            <span class="entry-company">· Shokworks, Inc.</span>
+          </div>
+          <span class="entry-meta">Dec 2021 – Jul 2022 · Remote</span>
+        </div>
+        <ul>
+          <li>Designed databases across <strong>DynamoDB</strong>, <strong>AWS RDS</strong>, <strong>PostgreSQL</strong>, and <strong>MySQL</strong>, and developed serverless functions on <strong>AWS Lambda</strong>.</li>
+          <li>Built <strong>Node.js / NestJS</strong> microservices, automated testing suites with <strong>Jest</strong>, and <strong>Solidity Smart Contracts</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Backend Developer</span>
+            <span class="entry-company">· Century 21 Venezuela</span>
+          </div>
+          <span class="entry-meta">Oct 2017 – Jul 2022 · Puerto Ordaz</span>
+        </div>
+        <ul>
+          <li>Developed a <strong>PHP / Laravel RESTful API</strong> for an internal <strong>CRM</strong> system using <strong>TDD</strong>, database design, statistical analytics, and automated email workflows.</li>
+          <li>Implemented <strong>role-based access control (RBAC)</strong> and managed <strong>Linux</strong> production servers.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Startups &amp; Featured Projects (Architect / Tech Lead)</h2>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-name">Daale.live — Real-Time Live Shopping &amp; Auctions Platform</span>
+          <span class="project-stack">TypeScript · Hono · Drizzle · PostgreSQL · WebRTC · React Native</span>
+        </div>
+        <p class="project-desc">
+          Monorepo ecosystem (API, async worker, and Android/Web apps). Built adaptive 1080p WebRTC streaming, WebSocket live auctions and giveaways, webhook payment reconciliation (Banco Activo, Cashea), and multi-carrier shipping quotes (Fulfy Plus).
+        </p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-name">Partida (partida.lat) — Sports Booking, Matchmaking &amp; Streaming Platform</span>
+          <span class="project-stack">NestJS · Prisma · PostgreSQL · Redis/BullMQ · Expo · Next.js</span>
+        </div>
+        <p class="project-desc">
+          End-to-end platform for padel clubs and players: court reservations, match scheduling, live stream &amp; highlights delivery, local mobile payments (Pago Móvil), and real-time push notifications.
+        </p>
+      </div>
+
+      <div class="project-item">
+        <div class="project-header">
+          <span class="project-name">Clini — On-Demand Cleaning Services Marketplace</span>
+          <span class="project-stack">NestJS · Prisma · PostgreSQL · Firebase Auth · Expo · Next.js</span>
+        </div>
+        <p class="project-desc">
+          Monorepo with shared domain contracts, Swagger-documented REST API, Firebase authentication, cross-platform mobile app for clients and service providers, and Next.js admin dashboard.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills &amp; Languages</h2>
+      <div class="skills-grid">
+        <div class="skill-row"><strong>Languages:</strong> Go (5+ yrs), TypeScript / JavaScript (8+ yrs), PHP (7+ yrs)</div>
+        <div class="skill-row"><strong>Backend &amp; Frameworks:</strong> NestJS, Hono, Gin, GORM, Node.js, Express, Laravel, Serverless Framework, RESTful APIs</div>
+        <div class="skill-row"><strong>Frontend &amp; Mobile:</strong> React, Next.js, React Native, Expo</div>
+        <div class="skill-row"><strong>Databases &amp; Queues:</strong> PostgreSQL, MySQL, MariaDB, MongoDB, DynamoDB, Redis / BullMQ, Prisma, Drizzle ORM</div>
+        <div class="skill-row"><strong>Cloud &amp; Architecture:</strong> Google Cloud Platform (Cloud Run, BigQuery, Pub/Sub, Cloud Storage, Firebase), Amazon Web Services (Lambda, RDS, EC2, S3, EventBridge), Docker, CI/CD, Linux, Event-Driven, WebSockets, WebRTC, TDD, Jest, Solidity</div>
+        <div class="skill-row"><strong>Languages (Spoken):</strong> Spanish (Native), English (B1 – Intermediate)</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu-row">
+        <div>
+          <strong>B.S. in Computer Science (Ingeniería en Informática)</strong> · Universidad Nacional Experimental de Guayana (UNEG)
+        </div>
+        <span class="entry-meta">Graduated: Jun 2022 · Ciudad Guayana, VE</span>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
